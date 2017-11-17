@@ -10,14 +10,12 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      // require.context("./test", false, /\.test\.js$/);
-      component: require('../components/HelloWorld.vue')
+      component: require('../components/HelloWorld.vue').default
     },
     {
       path: '/test',
       name: 'Test',
-      component: require('../components/Test.vue')
-      // component: require.context('@/components/Test.vue')
+      component: resolve => require(['@/components/Test'], resolve)
     }
   ]
 })
